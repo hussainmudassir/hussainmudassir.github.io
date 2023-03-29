@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World</title>
+    <style>
+      body.content {
+        font-family: sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form.container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label.pop {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      input[type="text"] {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+        margin-bottom: 1rem;
+      }
+
+      button[type="submit"] {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        background-color: #8F00FF;
+        color: #fff;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #ffff;
+      }
+
+      p.welcome-greet {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class='content'>
+    <h1>Hello World</h1>
+    <form class='container'>
+      <label class='pop' for="name">Please tell us your name?</label>
+      <input type="text" id="name" name="name" />
+      <button type="submit">Welcome</button>
+    </form>
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if(!document.getElementById('name').value.trim().length){ alert('Please tell us your name!'); 
+        return;
+      }
+        const welcomeGreet = document.createElement('p');
+        welcomeGreet.textContent = `Hello, ${document.getElementById('name').value}!`;
+        alert(welcomeGreet.textContent);
+      });
+    </script>
+  </body>
+</html>
